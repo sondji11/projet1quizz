@@ -29,8 +29,8 @@ if(isset($_SESSION[KEY_ERRORS])){
     </div>
     
     <div class="menu">
-        <form action="<?= WEBROOT?>" method="post">
-        <input type="hidden" name="controller" value="securite">
+        <form action="<?= WEBROOT?>" method="post" id="form">
+        <input type="hidden" name="controller" value="securite" >
             <input type="hidden" name="action" value="connexion">
 
             <div class="barr1">
@@ -39,38 +39,43 @@ if(isset($_SESSION[KEY_ERRORS])){
             </div>
             <div class="barr2">
 
-                     <div class="login">  
-                        <input type="text" name="login" placeholder="login">
+                     <div class="login" id="loginE">  
+                        <input type="text" name="login" placeholder="login" id="login_input">
                         <img src="<?= WEBROOT."img".DIRECTORY_SEPARATOR."login.png"?>" alt="">
                      </div>  
 
                      <?php
-            if(isset($errors['login'])):?>
-            <span style="color: red;"> <?=$errors['login'];?></span>
+                        if(isset($errors['login'])):?>
+                        <span id="loginerror" style="color:red;text-align:center;"> 
+                            <?=$errors['login'];?>
+                        </span>
+                    <?php endif?>
+                        <span id="loginerror" style="color:red;text-align:center;"></span>
 
-            <?php endif?>
-
-                     <div class="password">
-                         <input type="password" placeholder="password" name="password">
+                     <div class="password" id="password">
+                         <input type="password" placeholder="password" name="password" id="password_input">
                          <i class="material-icons" style="font-size:28px;color:rgb(190, 190, 190);">lock</i>
                      </div>
 
                      <?php
-            if(isset($errors['password'])):?>
-            <span style="color: red;"> <?=$errors['password'];?></span>
-
-            <?php endif?>
+                        if(isset($errors['password'])):?>
+                        <span id="passworderror" style="color:red;text-align:center;">
+                            <?=$errors['password'];?>
+                        </span>
+                    <?php endif?>
+                        <span id="passworderror" style="color:red;text-align:center;"></span>
                      
-            <?php
-            if(isset($errors['connexion'])):?>
-            <span style="color: red;"> <?=$errors['connexion'];?></span>
-
-            <?php endif?>
+                    <?php
+                        if(isset($errors['connexion'])):?>
+                        <span style="color:red;text-align:center;"> 
+                            <?=$errors['connexion'];?>
+                        </span>
+                    <?php endif?>
             
                    
             </div>
             <div class="barr3">
-                <input type="submit" value="connexion" >
+                <input type="submit" value="connexion" id="submit" >
                 
                 <a href="#">s'inscrire pour jouer</a>
             </div>
@@ -78,5 +83,6 @@ if(isset($_SESSION[KEY_ERRORS])){
        
         </form>
     </div>
+    <script src="<?= WEBROOT."js".DIRECTORY_SEPARATOR."script.js"?>"></script>
 </body>
 </html>

@@ -112,13 +112,21 @@ form{
 .barr2 i{
     margin-right: 4%;
 }
-.barr3 input{
+.barr3 input[type=submit]
+{
     margin-left:10% ;
     padding:2% ;
     background-color: #51bfd0;
     color: white;
     font-size:1em ;
     border: none;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+.barr3 input[type=submit]:hover
+{
+    background-color: #267885;
+    
 }
 .barr3 a{
     margin-left: 4%;
